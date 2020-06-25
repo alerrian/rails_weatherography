@@ -3,3 +3,12 @@
   width: 900px;
   border: solid;
 }
+
+#controls {
+  border: solid;
+}
+
+.main_objects {
+  padding-top: 5rem;
+  align-content: center;
+}
