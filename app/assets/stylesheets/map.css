@@ -5,10 +5,6 @@
 }
 
 #controls {
+  vertical-align: 0px;
   border: solid;
-}
-
-.main_objects {
-  padding-top: 5rem;
-  align-content: center;
 }
