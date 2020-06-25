@@ -12,4 +12,12 @@ RSpec.describe 'As a visitor' do
 
     expect(page).to have_css('#controls')
   end
+
+  it 'has a drop down inside of controls that has states' do
+    visit root_path
+
+    within '#state_dropdown' do
+      
+    end
+  end
 end
