@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+@colorado = State.create!(name: 'Colorado', lat: 39.3026, long: -105.343061, zoom: 6)
