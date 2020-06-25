@@ -4,6 +4,7 @@ class MapController < ApplicationController
     
     if params[:state_id]
       @state = State.find_by(id: params[:state_id])
+      @weather = @state.get_weather(@state.lat, @state.long)
     end
   end
 end
