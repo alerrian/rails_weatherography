@@ -1,21 +1,33 @@
-<div class='container main_objects'>
+<div class='container'>
   <div class='row'>
     <div id='map' class='col-8'>
     </div>
+    
     <div id='controls' class='col-4'>
       <div id='state_dropdown' class="dropdown">
-        Select a State: 
+        Select a State:
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Select State
+          State
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <% @states.each do |state| %>
-          <a class='dropdown-item' href="/?state_id=<%= state.id %>"><%= state.name %>
-            <% end %>
+            <a class='dropdown-item' href="/?state_id=<%= state.id %>"><%= state.name %></a>
+          <% end %>
         </div>
       </div>
-      <div class='col'>
-      </div>
+
+      <% if @state.nil? %>
+        <% state_id = nil %>
+      <% else %>
+        <% state_id = @state.id %>
+      <% end %>
+
+      <%= form_with(url: "/", method: "get") do %>
+        <%= label_tag(:temperature, "Enter temperature:") %>
+        <%= hidden_field_tag :state_id, state_id %>
+        <%= text_field_tag(:temperature) %>
+        <%= submit_tag("Search") %>
+      <% end %>
     </div>
   </div>
 </div>
