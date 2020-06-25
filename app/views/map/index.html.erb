@@ -1,0 +1,35 @@
+<div class='container main_objects'>
+  <div class='row'>
+    <div id='map' class='col-8'>
+    </div>
+    <div id='controls' class='col-4'>
+      <div id='state_dropdown' class="dropdown">
+        Select a State: 
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Select State
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <% @states.each do |state| %>
+          <a class='dropdown-item' href="/?state_id=<%= state.id %>"><%= state.name %>
+            <% end %>
+        </div>
+      </div>
+      <div class='col'>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+  <% if @state %>
+    state_lat = '<%= @state.lat %>';
+    state_lng = '<%= @state.long %>';
+    state_zoom = '<%= @state.zoom %>';
+  <% else %>
+    state_lat = 37.94;
+    state_lng = -98.31;
+    state_zoom = 4;
+  <% end %>
+<% end %>
+
+<%= javascript_pack_tag 'map' %>
