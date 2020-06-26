@@ -21,13 +21,6 @@
       <% else %>
         <% state_id = @state.id %>
       <% end %>
-
-      <%= form_with(url: "/", method: "get") do %>
-        <%= label_tag(:temperature, "Enter temperature:") %>
-        <%= hidden_field_tag :state_id, state_id %>
-        <%= text_field_tag(:temperature) %>
-        <%= submit_tag("Search") %>
-      <% end %>
     </div>
   </div>
 </div>
@@ -37,6 +30,7 @@
     state_lat = '<%= @state.lat %>';
     state_lng = '<%= @state.long %>';
     state_zoom = '<%= @state.zoom %>';
+    state_weather = '<%= @weather.to_json.html_safe %>';
   <% else %>
     state_lat = 37.94;
     state_lng = -98.31;
