@@ -21,6 +21,11 @@
       <% else %>
         <% state_id = @state.id %>
       <% end %>
+
+      <%= form_with url: root_path do |form| %>
+        <%= form.text_field :temp %>
+        <%= submit_tag :submit, class: 'btn-lg-light' %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -31,6 +36,7 @@
     state_lng = '<%= @state.long %>';
     state_zoom = '<%= @state.zoom %>';
     state_weather = '<%= @weather.to_json.html_safe %>';
+    temp = '<%= @temp.to_i %>';
   <% else %>
     state_lat = 37.94;
     state_lng = -98.31;

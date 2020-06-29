@@ -10,8 +10,11 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(mymap);
 
 var weather = JSON.parse(state_weather);
+console.log(temp);
+if (temp != 0) {
+    Object.keys(weather).forEach(city_name => {
+        marker = L.marker([weather[city_name].lat, weather[city_name].long]).addTo(mymap);
+        marker.bindPopup(`Current Temperature: ${weather[city_name].temp}`)
+    });
+}
 
-Object.keys(weather).forEach(city_name => {
-    marker = L.marker([weather[city_name].lat, weather[city_name].long]).addTo(mymap);
-    marker.bindPopup(`Current Temperature: ${weather[city_name].temp}`)
-});

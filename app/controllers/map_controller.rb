@@ -7,4 +7,11 @@ class MapController < ApplicationController
       @weather = @state.get_weather(@state.lat, @state.long)
     end
   end
+
+  def update
+    @temp = params[:temp]
+
+    redirect_to root_path
+    require 'pry'; binding.pry
+  end
 end
