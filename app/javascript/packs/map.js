@@ -11,7 +11,15 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 var weather = JSON.parse(state_weather);
 
-Object.keys(weather).forEach(city_name => {
-    marker = L.marker([weather[city_name].lat, weather[city_name].long]).addTo(mymap);
-    marker.bindPopup(`Current Temperature: ${weather[city_name].temp}`)
-});
+$(document).ready(function () {
+  $('[data-js-search]').change(function (event) {
+    temp = $(this).val();
+
+    if (weather[city_name].temp > temp-10 && weather[city_name].temp < temp+10) {
+      Object.keys(weather).forEach(city_name => {
+        marker = L.marker([weather[city_name].lat, weather[city_name].long]).addTo(mymap);
+        marker.bindPopup(`Current Temperature: ${weather[city_name].temp}`)
+      });
+    }
+  });
+})

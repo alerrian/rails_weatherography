@@ -11,7 +11,7 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <% @states.each do |state| %>
-            <a class='dropdown-item' href="/?state_id=<%= state.id %>"><%= state.name %></a>
+            <a class='dropdown-item' href="/?state_id=<%= state.id %>"> <%= state.name %></a>
           <% end %>
         </div>
       </div>
@@ -21,6 +21,8 @@
       <% else %>
         <% state_id = @state.id %>
       <% end %>
+
+      Search <%= text_field_tag :search, '' , data: {'js-search' => true, state_id: state_id} %>
     </div>
   </div>
 </div>
@@ -35,6 +37,7 @@
     state_lat = 37.94;
     state_lng = -98.31;
     state_zoom = 4;
+    state_weather = '<%= @weather.to_json.html_safe %>';
   <% end %>
 <% end %>
 
