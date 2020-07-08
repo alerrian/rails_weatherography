@@ -8,5 +8,5 @@
   - Once cloned, run `bundle install`.
     - Note: You may need to install `Ruby 2.6.6` and `Rails 6.0.2`. Follow the installation instructions for Ruby [HERE](https://www.ruby-lang.org/en/documentation/installation/) and Rails [HERE](https://guides.rubyonrails.org/v5.0/getting_started.html).
   - You'll need an Open Weather Map API key from [HERE](https://openweathermap.org/guide).
-  - Run `figaro install` and add `OWM_API: {your key here}` to the provided `config/application.yml`.
+  - Run `figaro install` and add `OWM_API: "your key here"` to the provided `config/application.yml`.
   - Run `rails server` and head over to `localhost:3000` to see the app.
