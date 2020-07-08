@@ -13,7 +13,6 @@ var weather = JSON.parse(state_weather);
 
 $(document).ready(function () {
   $('[data-js-search]').change(function (event) {
-    $.get(`/?state_id=${$(this).val()}`, )
     temp = $(this).val();
 
     if (weather[city_name].temp > temp-10 && weather[city_name].temp < temp+10) {
