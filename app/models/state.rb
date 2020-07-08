@@ -21,6 +21,7 @@ class State < ApplicationRecord
       new_hash[city['name']][:lat] = city['coord']['lat']
       new_hash[city['name']][:long] = city['coord']['lon']
       new_hash[city['name']][:temp] = city['main']['temp']
+      new_hash[city['name']][:name] = city['name']
       new_hash
     end
   end

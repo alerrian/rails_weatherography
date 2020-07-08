@@ -1,5 +1,3 @@
-const { data } = require("jquery");
-
 var mymap = L.map('map').setView([state_lat, state_lng], state_zoom);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -29,7 +27,7 @@ $(document).ready(function () {
 			if (jsonWeather[city_name].temp > temp-10 && jsonWeather[city_name].temp < temp+10) {
 				marker = L.marker([jsonWeather[city_name].lat, jsonWeather[city_name].long]);
 				marker.addTo(mymap);
-        marker.bindPopup(`Current Temperature: ${jsonWeather[city_name].temp}`)
+				marker.bindPopup(`<b>Current Temp:</b> ${jsonWeather[city_name].temp}<br /><b>City Name:</b> ${jsonWeather[city_name].name}`)
 			}
     });
   });
