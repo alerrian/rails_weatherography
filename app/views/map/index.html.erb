@@ -10,6 +10,7 @@
           State
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class='dropdown-item' href="/">Home</a>
           <% @states.each do |state| %>
             <a class='dropdown-item' href="/?state_id=<%= state.id %>"> <%= state.name %></a>
           <% end %>
@@ -20,9 +21,9 @@
         <% state_id = nil %>
       <% else %>
         <% state_id = @state.id %>
+        Search <%= text_field_tag :search, '' , data: {'js-search' => true} %>
       <% end %>
 
-      Search <%= text_field_tag :search, '' , data: {'js-search' => true} %>
     </div>
   </div>
 </div>
