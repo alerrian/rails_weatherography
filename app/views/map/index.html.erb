@@ -22,22 +22,22 @@
         <% state_id = @state.id %>
       <% end %>
 
-      Search <%= text_field_tag :search, '' , data: {'js-search' => true, state_id: state_id} %>
+      Search <%= text_field_tag :search, '' , data: {'js-search' => true} %>
     </div>
   </div>
 </div>
 
 <%= javascript_tag do %>
   <% if @state %>
+    state_id = '<%= @state.id %>';
     state_lat = '<%= @state.lat %>';
     state_lng = '<%= @state.long %>';
     state_zoom = '<%= @state.zoom %>';
-    state_weather = '<%= @weather.to_json.html_safe %>';
   <% else %>
+    state_id = 0;
     state_lat = 37.94;
     state_lng = -98.31;
     state_zoom = 4;
-    state_weather = '<%= @weather.to_json.html_safe %>';
   <% end %>
 <% end %>
 

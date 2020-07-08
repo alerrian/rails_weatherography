@@ -1,3 +1,5 @@
+const { data } = require("jquery");
+
 var mymap = L.map('map').setView([state_lat, state_lng], state_zoom);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -9,17 +11,21 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: 'pk.eyJ1Ijoic3RldmVuYWFuZGVyc29uMjAxMiIsImEiOiJja2J1YncxOTIwaWR5MzRtaWdsNWgxajF1In0.O4XNyHXkLnx3fs1jARRbeQ'
 }).addTo(mymap);
 
-var weather = JSON.parse(state_weather);
+
+$.get('/weather', {state_id}, function(data, status){
+	weather = data
+})
 
 $(document).ready(function () {
   $('[data-js-search]').change(function (event) {
-    temp = $(this).val();
+		temp = parseInt($(this).val(), 10);
+		jsonWeather = JSON.parse(weather.data)
 
-    if (weather[city_name].temp > temp-10 && weather[city_name].temp < temp+10) {
-      Object.keys(weather).forEach(city_name => {
-        marker = L.marker([weather[city_name].lat, weather[city_name].long]).addTo(mymap);
-        marker.bindPopup(`Current Temperature: ${weather[city_name].temp}`)
-      });
-    }
+		Object.keys(jsonWeather).forEach(city_name => {
+			if (jsonWeather[city_name].temp > temp-10 && jsonWeather[city_name].temp < temp+10) {
+        marker = L.marker([jsonWeather[city_name].lat, jsonWeather[city_name].long]).addTo(mymap);
+        marker.bindPopup(`Current Temperature: ${jsonWeather[city_name].temp}`)
+			}
+    });
   });
 })
