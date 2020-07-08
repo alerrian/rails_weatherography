@@ -9,7 +9,7 @@ class State < ApplicationRecord
   validates_uniqueness_of :name
 
   def get_weather(lat, long)
-    response = Faraday.get("http://api.openweathermap.org/data/2.5/find?lat=#{lat}&lon=#{long}&cnt=50&appid=#{ENV['OWM_API']}&units=imperial")
+    response = Faraday.get("http://api.openweathermap.org/data/2.5/find?lat=#{lat}&lon=#{long}&cnt=50&appid=#{Rails.application.credentials.owm[:api_key]}&units=imperial")
     json = JSON.parse(response.body)
 
     hash_response = hash_weather(json['list'])

@@ -11,7 +11,6 @@ gem 'webpacker', '~> 4.0'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'leaflet-rails'
-gem 'figaro'
 gem 'faraday'
 gem 'jquery-rails'
 
