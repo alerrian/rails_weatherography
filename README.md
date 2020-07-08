@@ -1,7 +1,7 @@
 # About
-  ```
+  
   Leaflet-Rails is a basic rails application using jQuery on the Front End to facilitate data flow to the map. Ultimately, the goal is to provide a drop down where selected states can be viewed closer. Once in a 'state view' visitors can use the provided text box to enter integer numbers and press enter on their keyboards. Markers will pop up on the map of the cities whose current temperature is within 10 degrees of the input integer number. Users can freely use the drop down menu to hit any of the states.
-  ```
+  
 
 # Installation
   - Clone this repo to your local machine by using the green clone link.
