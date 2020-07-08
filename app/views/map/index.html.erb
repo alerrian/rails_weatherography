@@ -10,9 +10,11 @@
           State
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class='dropdown-item' href="/">Home</a>
+          <li><a class='dropdown-item' href="/">Home</a></li>
+          <div class='dropdown-divider'></div>
+          <h6 class='dropdown-header'>States</h6>
           <% @states.each do |state| %>
-            <a class='dropdown-item' href="/?state_id=<%= state.id %>"> <%= state.name %></a>
+            <li><a class='dropdown-item' href="/?state_id=<%= state.id %>"> <%= state.name %></a></li>
           <% end %>
         </div>
       </div>
@@ -21,7 +23,7 @@
           <% state_id = nil %>
         <% else %>
           <% state_id = @state.id %>
-          Insert Temperature: <%= text_field_tag :search, '' , data: {'js-search' => true} %>
+          Insert Temperature: <%= number_field_tag :temp, '' , data: {'js-search' => true} %>
         <% end %>
       </div>
     </div>
