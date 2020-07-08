@@ -3,8 +3,8 @@
     <div id='map' class='col-8'>
     </div>
     
-    <div id='controls' class='col-4'>
-      <div id='state_dropdown' class="dropdown">
+    <div id='controls' class='d-flex align-items-center col-4'>
+      <div id='state_dropdown' class="dropdown align-self">
         Select a State:
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           State
@@ -16,14 +16,14 @@
           <% end %>
         </div>
       </div>
-
-      <% if @state.nil? %>
-        <% state_id = nil %>
-      <% else %>
-        <% state_id = @state.id %>
-        Insert Temperature: <%= text_field_tag :search, '' , data: {'js-search' => true} %>
-      <% end %>
-
+      <div class='align-self'>
+        <% if @state.nil? %>
+          <% state_id = nil %>
+        <% else %>
+          <% state_id = @state.id %>
+          Insert Temperature: <%= text_field_tag :search, '' , data: {'js-search' => true} %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
