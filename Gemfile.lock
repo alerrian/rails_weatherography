@@ -213,7 +213,7 @@ GEM
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
-    websocket-driver (0.7.2)
+    websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     xpath (3.2.0)
@@ -228,14 +228,7 @@ DEPENDENCIES
   byebug
   capybara
   faraday
-<<<<<<< HEAD
   faraday-http-cache
-<<<<<<< HEAD
-  figaro
-=======
->>>>>>> 1a567a7... Add Rails standard security to applicaiton
-=======
->>>>>>> 77c5469b28229c3a3456e0cbe267a38b6e3edb52
   jbuilder (~> 2.7)
   jquery-rails
   launchy
