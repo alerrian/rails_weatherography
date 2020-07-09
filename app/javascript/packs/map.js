@@ -9,12 +9,12 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: 'pk.eyJ1Ijoic3RldmVuYWFuZGVyc29uMjAxMiIsImEiOiJja2J1YncxOTIwaWR5MzRtaWdsNWgxajF1In0.O4XNyHXkLnx3fs1jARRbeQ'
 }).addTo(mymap);
 
-
-$.get('/weather', {state_id}, function(data, status){
-	weather = data
-})
-
 $(document).ready(function () {
+	if (state_id != 0) {
+		$.get('/weather', {state_id}, function(data, status){
+			weather = data
+		})
+	}
   $('[data-js-search]').change(function (event) {
 		temp = parseInt($(this).val(), 10);
 		jsonWeather = JSON.parse(weather.data)
