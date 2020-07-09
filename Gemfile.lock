@@ -230,9 +230,12 @@ DEPENDENCIES
   faraday
 <<<<<<< HEAD
   faraday-http-cache
+<<<<<<< HEAD
   figaro
 =======
 >>>>>>> 1a567a7... Add Rails standard security to applicaiton
+=======
+>>>>>>> 77c5469b28229c3a3456e0cbe267a38b6e3edb52
   jbuilder (~> 2.7)
   jquery-rails
   launchy
