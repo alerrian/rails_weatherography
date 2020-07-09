@@ -82,8 +82,6 @@ GEM
     faraday-http-cache (2.2.0)
       faraday (>= 0.8)
     ffi (1.13.1)
-    figaro (1.2.0)
-      thor (>= 0.14.0, < 2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.3)
@@ -230,8 +228,11 @@ DEPENDENCIES
   byebug
   capybara
   faraday
+<<<<<<< HEAD
   faraday-http-cache
   figaro
+=======
+>>>>>>> 1a567a7... Add Rails standard security to applicaiton
   jbuilder (~> 2.7)
   jquery-rails
   launchy
