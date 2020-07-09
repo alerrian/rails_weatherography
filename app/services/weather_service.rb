@@ -1,15 +1,14 @@
 require 'json'
 
 class WeatherService
-  def get_weather(lat, long)
-    response = connection(lat, long).get("/data/2.5/find") do |faraday|
-      faraday.params['lat'] = lat
-      faraday.params['lon'] = long
-      faraday.params['cnt'] = 50
-      faraday.params['units'] = 'imperial'
-    end
+  def initialize(lat, long)
+    @lat = lat
+    @long = long
+  end
 
-    
+  def get_weather
+    response = connection.get("/data/2.5/find")
+
     json = JSON.parse(response.body)
     hash_response = hash_weather(json['list'])
   end
@@ -27,12 +26,16 @@ class WeatherService
   
   private
   
-  def connection(lat, long)
+  def connection
     connection = Faraday.new(url: 'https://api.openweathermap.org') do |faraday|
       faraday.use Faraday::HttpCache, store: Rails.cache
       faraday.adapter Faraday.default_adapter
 
       faraday.params['appid'] = Rails.application.credentials.owm[:api_key]
+      faraday.params['lat'] = @lat
+      faraday.params['lon'] = @long
+      faraday.params['cnt'] = 50
+      faraday.params['units'] = 'imperial'
     end
   end
 end
