@@ -11,13 +11,13 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 $(document).ready(function () {
 	if (state_id != 0) {
-		$.get('/weather', {state_id}, function(data, status){
-			weather = data
+		$.get('/weather', {state_id}, function(response, status){
+			weather = response.data			
 		})
 	}
   $('[data-js-search]').change(function (event) {
 		temp = parseInt($(this).val(), 10);
-		jsonWeather = JSON.parse(weather.data)
+		jsonWeather = JSON.parse(weather)
 		
 		$(".leaflet-marker-icon").remove();
 		$(".leaflet-popup").remove();
