@@ -12,7 +12,6 @@ class WeatherService
     
     json = JSON.parse(response.body)
     hash_response = hash_weather(json['list'])
-    require 'pry'; binding.pry
   end
   
   def hash_weather(json_response)
@@ -31,7 +30,6 @@ class WeatherService
   def connection(lat, long)
     connection = Faraday.new(url: 'https://api.openweathermap.org') do |faraday|
       faraday.use Faraday::HttpCache, store: Rails.cache
-      faraday.request :url_encoded
       faraday.adapter Faraday.default_adapter
 
       faraday.params['appid'] = Figaro.env.owm_api
