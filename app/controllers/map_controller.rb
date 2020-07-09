@@ -8,13 +8,11 @@ class MapController < ApplicationController
   end
   
   def weather
-    if params[:state_id]
-      @state = State.find_by(id: params[:state_id])
-    end
-    
-    weather_service = WeatherService.new
-    @weather = weather_service.get_weather(@state.lat, @state.long)
+    current_state = State.find_by(id: params[:state_id])
 
-    render json: {data: @weather.to_json.html_safe}
+    weather_service = WeatherService.new(current_state.lat, current_state.long)
+    weather = weather_service.get_weather
+
+    render json: {data: weather.to_json.html_safe}
   end
 end
