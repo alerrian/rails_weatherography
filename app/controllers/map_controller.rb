@@ -12,8 +12,8 @@ class MapController < ApplicationController
       @state = State.find_by(id: params[:state_id])
     end
     
-    weather_service = WeatherService.new(@state.lat, @state.long)
-    @weather = weather_service.get_weather
+    weather_service = WeatherService.new
+    @weather = weather_service.get_weather(@state.lat, @state.long)
 
     render json: {data: @weather.to_json.html_safe}
   end
