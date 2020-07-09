@@ -3,27 +3,29 @@
     <div id='map' class='col-8'>
     </div>
     
-    <div id='controls' class='col-4'>
-      <div id='state_dropdown' class="dropdown">
+    <div id='controls' class='d-flex align-items-center col-4'>
+      <div id='state_dropdown' class="dropdown align-self">
         Select a State:
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           State
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class='dropdown-item' href="/">Home</a>
+          <li><a class='dropdown-item' href="/">Home</a></li>
+          <div class='dropdown-divider'></div>
+          <h6 class='dropdown-header'>States</h6>
           <% @states.each do |state| %>
-            <a class='dropdown-item' href="/?state_id=<%= state.id %>"> <%= state.name %></a>
+            <li><a class='dropdown-item' href="/?state_id=<%= state.id %>"> <%= state.name %></a></li>
           <% end %>
         </div>
       </div>
-
-      <% if @state.nil? %>
-        <% state_id = nil %>
-      <% else %>
-        <% state_id = @state.id %>
-        Search <%= text_field_tag :search, '' , data: {'js-search' => true} %>
-      <% end %>
-
+      <div class='align-self'>
+        <% if @state.nil? %>
+          <% state_id = nil %>
+        <% else %>
+          <% state_id = @state.id %>
+          Insert Temperature: <%= number_field_tag :temp, '' , data: {'js-search' => true} %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
