@@ -15,6 +15,7 @@ $(document).ready(function () {
 			weather = data
 		})
 	}
+	
   $('[data-js-search]').change(function (event) {
 		temp = parseInt($(this).val(), 10);
 		jsonWeather = JSON.parse(weather.data)
