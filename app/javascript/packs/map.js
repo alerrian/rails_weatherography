@@ -28,7 +28,7 @@ $(document).ready(function () {
 	// Waits for a change related to the data-js-search id in index.html.erb
   $('[data-js-search]').change(function (event) {
 		//grabs the temp and the weather 
-		temp = $(this).val();
+		temp = parseInt($(this).val(), 10);
 		jsonWeather = JSON.parse(weather)
 		
 		// Removes all of the markers when a state is changed or the temperature is changed
