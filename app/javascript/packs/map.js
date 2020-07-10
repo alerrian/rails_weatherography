@@ -40,7 +40,7 @@ $(document).ready(function () {
 		//   Uses that city name to check data in the API response and place markers
 		//     Places markers if the city current temperature is within 10 of the input temp
 		Object.keys(jsonWeather).forEach(city_name => {			
-			if (jsonWeather[city_name].temp > temp-10 && jsonWeather[city_name].temp < temp+10) {
+			if (jsonWeather[city_name].temp > temp-5 && jsonWeather[city_name].temp < temp+5) {
 				marker = L.marker([jsonWeather[city_name].lat, jsonWeather[city_name].long]);
 				marker.addTo(mymap);
 				marker.bindPopup(`<b>Current Temp:</b> ${jsonWeather[city_name].temp}<br /><b>City Name:</b> ${jsonWeather[city_name].name}`);
