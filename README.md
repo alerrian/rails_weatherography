@@ -9,4 +9,11 @@
     - Note: You may need to install `Ruby 2.6.6` and `Rails 6.0.2`. Follow the installation instructions for Ruby [HERE](https://www.ruby-lang.org/en/documentation/installation/) and Rails [HERE](https://guides.rubyonrails.org/v5.0/getting_started.html).
   - You'll need an Open Weather Map API key from [HERE](https://openweathermap.org/guide).
   - Follow instructions [HERE](https://guides.rubyonrails.org/security.html#environmental-security) to secure the OWM API key using Rails' built in environment variable store.
+    - Variable setup should look like:  
+    
+```
+owm:
+  api_key: 'your api key'
+```
+  
   - Run `rails server` and head over to `localhost:3000` to see the app.
