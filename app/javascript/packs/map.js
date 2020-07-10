@@ -1,19 +1,18 @@
-// Sets global variable that is used to determine which state to look closer at
-//   Default is the whole US: 37.94, -98.31, 4
-var mymap = L.map('map').setView([state_lat, state_lng], state_zoom);
-
-// Uses a MapBox/OpenStreetMap map tile layer to show visuals on the map
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'pk.eyJ1Ijoic3RldmVuYWFuZGVyc29uMjAxMiIsImEiOiJja2J1YncxOTIwaWR5MzRtaWdsNWgxajF1In0.O4XNyHXkLnx3fs1jARRbeQ'
-}).addTo(mymap);
-
 // Waits for document to load then runs the following script
 $(document).ready(function () {
+	// Sets global variable that is used to determine which state to look closer at
+	//   Default is the whole US: 37.94, -98.31, 4
+	var mymap = L.map('map').setView([state_lat, state_lng], state_zoom);
+	// Uses a MapBox/OpenStreetMap map tile layer to show visuals on the map
+	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+			attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+			maxZoom: 18,
+			id: 'mapbox/streets-v11',
+			tileSize: 512,
+			zoomOffset: -1,
+			accessToken: 'pk.eyJ1Ijoic3RldmVuYWFuZGVyc29uMjAxMiIsImEiOiJja2J1YncxOTIwaWR5MzRtaWdsNWgxajF1In0.O4XNyHXkLnx3fs1jARRbeQ'
+	}).addTo(mymap);
+
 	// Checks is the state_id is not 0(defualt page).
 	//   If the state id isn't 0, it prefetches the weather for that state
 	//     Weather is cached in Rails on a 3 hour refresh
